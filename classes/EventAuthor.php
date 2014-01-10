@@ -45,11 +45,16 @@ class EventAuthor extends \Backend
 			$varTags = array();
 			foreach($tag as $key => $val)
 				if($user[$val])
-					$varTags[$val] = $user[$val];
+					$varTags[$val] = method_exists($this,$val) ? $this->$val($user[$val]) : $user[$val];
 
 			if($varTags)
 				return serialize($varTags);
 		}
 		return false;
+	}
+	
+	private function email($value)
+	{
+		return \String::encodeEmail($value);
 	}
 }
