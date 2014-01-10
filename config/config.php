@@ -15,3 +15,4 @@
 */
 
 $GLOBALS['TL_HOOKS']['getAllEvents'][] = array('EventAuthor', 'getEventAuthor');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('EventAuthor', 'insertTag');

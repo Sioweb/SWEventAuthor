@@ -31,6 +31,7 @@ ClassLoader::addClasses(array
 (
 	// Classes
 	'sioweb\contao\extensions\events\EventAuthor'				=> 'system/modules/SWEventAuthor/classes/EventAuthor.php',
+	'sioweb\contao\extensions\events\SWEventReader'				=> 'system/modules/SWEventAuthor/modules/SWEventReader.php',
 ));
 
 

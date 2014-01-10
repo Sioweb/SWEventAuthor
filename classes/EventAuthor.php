@@ -31,4 +31,25 @@ class EventAuthor extends \Backend
 				}
 		return $arrEvents;
 	}
+
+	public function insertTag($strTag)
+	{
+		$tag = explode('::',$strTag);
+		if($tag[0] == 'author')
+		{
+			$user = \UserModel::findByPk($tag[1]);
+			if($user)
+				$user = $user->row();
+
+			$tag = array_slice($tag,2);
+			$varTags = array();
+			foreach($tag as $key => $val)
+				if($user[$val])
+					$varTags[$val] = $user[$val];
+
+			if($varTags)
+				return serialize($varTags);
+		}
+		return false;
+	}
 }
